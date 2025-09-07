@@ -5,81 +5,166 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>이온히팅보일러 프레젠테이션</title>
   <style>
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
-      overflow: hidden;
-      width: 100%;
       height: 100%;
-      font-family: sans-serif;
-      background: #000;
+      background: #0b0b0b;
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, Apple SD Gothic Neo, Noto Sans KR, Nanum Gothic, Malgun Gothic, Gulim, sans-serif;
     }
-    .slide-container {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-    .slide {
-      display: none;
-      width: 100%;
-      height: 100%;
-    }
-    .slide.active {
-      display: block;
-    }
-    .nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2rem;
-      background: rgba(0,0,0,0.5);
+    .wrap {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
       color: #fff;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      z-index: 100;
     }
-    .prev { left: 10px; }
-    .next { right: 10px; }
+    header, footer {
+      padding: 8px 12px;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    header h1 {
+      font-size: 16px;
+      margin: 0;
+      font-weight: 600;
+    }
+    .viewer {
+      position: relative;
+      height: 100%;
+      background: #111;
+    }
+    iframe.slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: none;
+      background: #fff;
+    }
+    iframe.slide.active { display: block; }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn {
+      border: 1px solid #333;
+      background: #1c1c1c;
+      color: #fff;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 6px;
+      user-select: none;
+    }
+    .btn:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+    .pager {
+      font-size: 14px;
+      min-width: 72px;
+      text-align: center;
+      color: #bbb;
+    }
+    .thumbs {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 6px;
+      background: #0f0f0f;
+    }
+    .thumb {
+      border: 2px solid transparent;
+      border-radius: 6px;
+      overflow: hidden;
+      width: 160px;
+      height: 90px;
+      flex: 0 0 auto;
+      position: relative;
+      background: #fff;
+      cursor: pointer;
+    }
+    .thumb.active { border-color: #4caf50; }
+    .thumb iframe {
+      position: absolute;
+      inset: 0;
+      width: 200%;
+      height: 200%;
+      transform: scale(.5);
+      transform-origin: top left;
+      pointer-events: none;
+      border: 0;
+    }
+    @media (max-width: 640px) {
+      header h1 { font-size: 14px; }
+      .thumb { width: 120px; height: 68px; }
+    }
   </style>
 </head>
 <body>
-  <div class="slide-container">
-    <!-- 각 슬라이드 iframe -->
-    <iframe src="page_1.html" class="slide active"></iframe>
-    <iframe src="page_2.html" class="slide"></iframe>
-    <iframe src="page_3.html" class="slide"></iframe>
-    <iframe src="page_4.html" class="slide"></iframe>
-    <iframe src="page_5.html" class="slide"></iframe>
-
-    <!-- 내비게이션 버튼 -->
-    <button class="nav-btn prev">◀</button>
-    <button class="nav-btn next">▶</button>
+  <div class="wrap">
+    <header>
+      <h1>이온히팅보일러 프레젠테이션</h1>
+      <div class="nav">
+        <button class="btn prev">이전</button>
+        <div class="pager">1 / 5</div>
+        <button class="btn next">다음</button>
+      </div>
+    </header>
+    <div class="viewer">
+      <iframe class="slide active" src="page_1.html" title="1"></iframe>
+      <iframe class="slide" src="page_2.html" title="2"></iframe>
+      <iframe class="slide" src="page_3.html" title="3"></iframe>
+      <iframe class="slide" src="page_4.html" title="4"></iframe>
+      <iframe class="slide" src="page_5.html" title="5"></iframe>
+    </div>
+    <footer>
+      <div class="thumbs">
+        <div class="thumb active" data-idx="0"><iframe src="page_1.html"></iframe></div>
+        <div class="thumb" data-idx="1"><iframe src="page_2.html"></iframe></div>
+        <div class="thumb" data-idx="2"><iframe src="page_3.html"></iframe></div>
+        <div class="thumb" data-idx="3"><iframe src="page_4.html"></iframe></div>
+        <div class="thumb" data-idx="4"><iframe src="page_5.html"></iframe></div>
+      </div>
+      <div style="font-size:12px; color:#777; margin-left:auto; padding-left:8px;">화살표 키로 이동</div>
+    </footer>
   </div>
-
   <script>
-    const slides = document.querySelectorAll('.slide');
-    let current = 0;
-    const showSlide = (index) => {
-      slides.forEach((s, i) => s.classList.toggle('active', i === index));
-    };
-    document.querySelector('.prev').addEventListener('click', () => {
-      current = (current - 1 + slides.length) % slides.length;
-      showSlide(current);
+    const slides = Array.from(document.querySelectorAll('iframe.slide'));
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    const pager = document.querySelector('.pager');
+    const thumbs = Array.from(document.querySelectorAll('.thumb'));
+    let i = 0;
+    function show(idx, pushHash = true) {
+      i = (idx + slides.length) % slides.length;
+      slides.forEach((el, k) => el.classList.toggle('active', k === i));
+      thumbs.forEach((el, k) => el.classList.toggle('active', k === i));
+      pager.textContent = (i + 1) + ' / ' + slides.length;
+      if (pushHash) location.hash = '#p=' + (i + 1);
+    }
+    prevBtn.addEventListener('click', () => show(i - 1));
+    nextBtn.addEventListener('click', () => show(i + 1));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') show(i - 1);
+      if (e.key === 'ArrowRight') show(i + 1);
     });
-    document.querySelector('.next').addEventListener('click', () => {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') {
-        current = (current - 1 + slides.length) % slides.length;
-        showSlide(current);
-      } else if (e.key === 'ArrowRight') {
-        current = (current + 1) % slides.length;
-        showSlide(current);
+    thumbs.forEach(t => t.addEventListener('click', () => show(parseInt(t.dataset.idx, 10))));
+    // Deep-link support
+    function initFromHash() {
+      const m = location.hash.match(/#p=(\d+)/);
+      if (m) {
+        const n = parseInt(m[1], 10);
+        if (!isNaN(n) && n >= 1 && n <= slides.length) show(n - 1, false);
       }
-    });
+    }
+    window.addEventListener('hashchange', initFromHash);
+    initFromHash();
   </script>
 </body>
 </html>
