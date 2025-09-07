@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>이온히팅보일러 기술소개 및 성능검증</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script><style>
+        body {width: 1280px; height: 720px; overflow: hidden; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ef 100%);
+            
+        }
+        .grid-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 150, 136, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 150, 136, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .energy-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0, 150, 136, 0.1);
+            animation: pulse 4s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 0.6; }
+        }
+        .title-box {
+            background: rgba(255, 255, 255, 0.9);
+            border-left: 5px solid #009688;
+        }
+        .subtitle {
+            color: #555;
+        }
+        .date-box {
+            background: rgba(0, 150, 136, 0.9);
+        }
+        .icon-circle {
+            background: rgba(0, 150, 136, 0.1);
+            border: 2px solid rgba(0, 150, 136, 0.3);
+        }
+    
+html {
+    overflow: hidden;
+}</style>
+</head>
+<body>
+<div class="slide flex flex-col items-center justify-center bg-white" style=" overflow: hidden;">
+<!-- Background pattern -->
+<div class="grid-pattern"></div>
+<!-- Decorative energy circles -->
+<div class="energy-circle" style="width: 500px; height: 500px; top: 110px; left: 390px;"></div>
+<div class="energy-circle" style="width: 400px; height: 400px; top: 160px; left: 440px; animation-delay: 1s;"></div>
+<div class="energy-circle" style="width: 300px; height: 300px; top: 210px; left: 490px; animation-delay: 2s;"></div>
+<!-- Content container -->
+<div class="z-10 w-full px-16">
+<!-- Top icons -->
+<div class="flex justify-between mb-12">
+<div class="icon-circle w-16 h-16 rounded-full flex items-center justify-center">
+<i class="fas fa-bolt text-2xl text-green-600"></i>
+</div>
+<div class="icon-circle w-16 h-16 rounded-full flex items-center justify-center">
+<i class="fas fa-leaf text-2xl text-green-600"></i>
+</div>
+</div>
+<!-- Main title box -->
+<div class="title-box max-w-4xl mx-auto p-10 mb-10 rounded-lg shadow-lg">
+<h1 class="text-5xl font-bold text-gray-800 mb-4">이온히팅보일러</h1>
+<h2 class="text-4xl font-semibold text-green-700 mb-6">기술소개 및 성능검증</h2>
+<p class="subtitle text-xl mb-6">에너지 효율 99.6%, 탄소 배출량 43% 감소</p>
+<div class="flex items-center">
+<div class="w-10 h-1 bg-orange-500 mr-3"></div>
+<p class="text-lg text-gray-600">차세대 난방 솔루션의 혁신</p>
+</div>
+</div>
+<!-- Bottom date -->
+<div class="date-box text-white py-3 px-8 rounded-lg text-right inline-block">
+<p class="text-lg">발표일: 2025-09-06</p>
+</div>
+</div>
+<!-- Bottom icons -->
+<div class="absolute bottom-10 left-10 flex space-x-4">
+<div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+<i class="fas fa-chart-line text-green-600"></i>
+</div>
+<div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+<i class="fas fa-industry text-green-600"></i>
+</div>
+<div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+<i class="fas fa-temperature-high text-green-600"></i>
+</div>
+</div>
+</div>
+
+</body></html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>국내 대기업 실증 사례</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script><style>
+        body {width: 1280px; min-height: 720px; overflow: hidden; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ef 100%);
+            
+        }
+        .grid-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 150, 136, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 150, 136, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .title-box {
+            background: rgba(255, 255, 255, 0.9);
+            border-left: 5px solid #009688;
+        }
+        .case-study-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-left: 4px solid #009688;
+            transition: all 0.3s ease;
+        }
+        .case-study-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .stat-card {
+            background: rgba(0, 150, 136, 0.1);
+            border: 1px solid rgba(0, 150, 136, 0.3);
+        }
+        .icon-circle {
+            background: rgba(0, 150, 136, 0.1);
+            border: 2px solid rgba(0, 150, 136, 0.3);
+        }
+        .highlight-text {
+            color: #009688;
+            font-weight: bold;
+        }
+    
+html {
+    overflow: hidden;
+}</style>
+</head>
+<body>
+<div class="slide flex flex-col" style=" overflow: hidden;">
+<!-- Background pattern -->
+<div class="grid-pattern"></div>
+<!-- Title section -->
+<div class="title-box w-full py-4 px-10 mb-6 z-10">
+<h1 class="text-3xl font-bold text-gray-800">국내 대기업 실증 사례</h1>
+</div>
+<!-- Main content -->
+<div class="flex flex-1 px-10 pb-6 z-10">
+<!-- Left column - Case study -->
+<div class="w-1/2 pr-6">
+<div class="case-study-card p-5 rounded-lg shadow-md mb-5">
+<div class="flex items-center mb-3">
+<div class="icon-circle w-10 h-10 rounded-full flex items-center justify-center mr-3">
+<i class="fas fa-industry text-green-600"></i>
+</div>
+<h2 class="text-2xl font-semibold text-gray-800">현대자동차 아산공장</h2>
+</div>
+<img alt="현대자동차 아산공장" class="w-full h-40 object-cover rounded-md mb-4" src="https://picture-search.skywork.ai/aippt/image/sheet/74ef5b09480fb737cfad55955bd3acbe.jpg" data-sk-source-container="img" data-sk-source-url="https://www.mk.co.kr/news/economy/7486238" data-sk-source-id="1964344023462912004"/>
+<p class="text-gray-700 mb-3">이온히팅시스템 도입으로 연간 약 <span class="highlight-text">14.5억 원</span>의 에너지 비용을 절감하고, <span class="highlight-text">2,456톤</span>의 이산화탄소 배출량을 감축하는 성과를 달성했습니다.</p>
+<p class="text-gray-700">현대자동차의 2025년 지속가능경영보고서에 에너지 절감 우수 사례로 공식 등재되었습니다.</p>
+</div>
+<div class="case-study-card p-5 rounded-lg shadow-md">
+<div class="flex items-center mb-3">
+<div class="icon-circle w-10 h-10 rounded-full flex items-center justify-center mr-3">
+<i class="fas fa-chart-line text-green-600"></i>
+</div>
+<h2 class="text-2xl font-semibold text-gray-800">국내 현황</h2>
+</div>
+<p class="text-gray-700 mb-3">2023년 기준으로 약 <span class="highlight-text">102대</span>의 이온히팅시스템이 국내 여러 현장에 적용되었습니다.</p>
+<p class="text-gray-700">가스 스팀 대체, 가스흡수식 냉온수기 대체, 전기보일러 대체 등 다양한 용도로 활용되며 안정적인 운용을 입증하고 있습니다.</p>
+</div>
+</div>
+<!-- Right column - Stats -->
+<div class="w-1/2 pl-6">
+<div class="mb-6">
+<h3 class="text-xl font-semibold text-gray-700 mb-4">성능 검증 결과</h3>
+<p class="text-gray-600 mb-4">102대의 이온히팅시스템은 기존 화석연료 보일러를 대체하여 다음의 효과를 가져왔습니다:</p>
+<div class="flex space-x-4 mb-6">
+<div class="stat-card flex-1 p-4 rounded-lg flex flex-col items-center justify-center">
+<div class="icon-circle w-12 h-12 rounded-full flex items-center justify-center mb-2">
+<i class="fas fa-bolt text-green-600 text-xl"></i>
+</div>
+<p class="text-lg font-bold text-gray-800">에너지 절감</p>
+<p class="text-3xl font-bold text-green-600">50%+</p>
+</div>
+<div class="stat-card flex-1 p-4 rounded-lg flex flex-col items-center justify-center">
+<div class="icon-circle w-12 h-12 rounded-full flex items-center justify-center mb-2">
+<i class="fas fa-leaf text-green-600 text-xl"></i>
+</div>
+<p class="text-lg font-bold text-gray-800">탄소 배출량 저감</p>
+<p class="text-3xl font-bold text-green-600">40%+</p>
+</div>
+</div>
+</div>
+<!-- D3.js Chart -->
+<div class="bg-white p-4 rounded-lg shadow-md">
+<h3 class="text-xl font-semibold text-gray-700 mb-2">이온히팅보일러의 효과</h3>
+<div class="w-full h-48" id="chart"></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+        // D3.js Chart Implementation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Data based on the document
+            const data = [
+                {category: "에너지 효율", value: 99.6, color: "#009688"},
+                {category: "가스보일러 대비", value: 50, color: "#9C27B0"},
+                {category: "히트펌프 대비", value: 28.1, color: "#FF9800"}
+            ];
+            
+            // Chart dimensions
+            const width = document.getElementById('chart').clientWidth;
+            const height = document.getElementById('chart').clientHeight;
+            const margin = {top: 20, right: 20, bottom: 40, left: 40};
+            const innerWidth = width - margin.left - margin.right;
+            const innerHeight = height - margin.top - margin.bottom;
+            
+            // Create SVG
+            const svg = d3.select('#chart')
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height);
+            
+            const g = svg.append('g')
+                .attr('transform', `translate(${margin.left},${margin.top})`);
+            
+            // X scale
+            const x = d3.scaleBand()
+                .domain(data.map(d => d.category))
+                .range([0, innerWidth])
+                .padding(0.3);
+            
+            // Y scale
+            const y = d3.scaleLinear()
+                .domain([0, 100])
+                .range([innerHeight, 0]);
+            
+            // Add X axis
+            g.append('g')
+                .attr('transform', `translate(0,${innerHeight})`)
+                .call(d3.axisBottom(x))
+                .selectAll('text')
+                .style('font-size', '12px');
+            
+            // Add Y axis
+            g.append('g')
+                .call(d3.axisLeft(y).ticks(5).tickFormat(d => d + '%'))
+                .selectAll('text')
+                .style('font-size', '12px');
+            
+            // Add bars
+            g.selectAll('.bar')
+                .data(data)
+                .enter()
+                .append('rect')
+                .attr('class', 'bar')
+                .attr('x', d => x(d.category))
+                .attr('y', d => y(d.value))
+                .attr('width', x.bandwidth())
+                .attr('height', d => innerHeight - y(d.value))
+                .attr('fill', d => d.color);
+            
+            // Add value labels
+            g.selectAll('.label')
+                .data(data)
+                .enter()
+                .append('text')
+                .attr('class', 'label')
+                .attr('x', d => x(d.category) + x.bandwidth() / 2)
+                .attr('y', d => y(d.value) - 5)
+                .attr('text-anchor', 'middle')
+                .text(d => d.value + '%')
+                .style('font-size', '14px')
+                .style('font-weight', 'bold')
+                .style('fill', '#333');
+        });
+    </script>
+
+</body></html>

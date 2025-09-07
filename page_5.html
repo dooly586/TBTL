@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>난방 시스템 비교 및 실증 테스트 제안</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script><style>
+        body {width: 1280px; min-height: 732px; overflow: hidden; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            min-height: 732px;
+            position: relative;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ef 100%);
+            
+        }
+        .grid-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 150, 136, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 150, 136, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .title-box {
+            background: rgba(255, 255, 255, 0.9);
+            border-left: 5px solid #009688;
+        }
+        .comparison-table th {
+            background-color: rgba(0, 150, 136, 0.9);
+            color: white;
+            padding: 10px;
+        }
+        .comparison-table td {
+            padding: 10px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        .comparison-table tr:nth-child(odd) {
+            background-color: rgba(232, 245, 239, 0.7);
+        }
+        .suggestion-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-left: 4px solid #009688;
+            transition: all 0.3s ease;
+        }
+        .suggestion-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .icon-circle {
+            background: rgba(0, 150, 136, 0.1);
+            border: 2px solid rgba(0, 150, 136, 0.3);
+        }
+        .highlight-text {
+            color: #009688;
+            font-weight: bold;
+        }
+        .rating-excellent {
+            color: #009688;
+        }
+        .rating-good {
+            color: #4CAF50;
+        }
+        .rating-average {
+            color: #FFC107;
+        }
+        .rating-poor {
+            color: #F44336;
+        }
+    
+html {
+    overflow: hidden;
+}</style>
+</head>
+<body>
+<div class="slide flex flex-col" style=" overflow: hidden;">
+<!-- Background pattern -->
+<div class="grid-pattern"></div>
+<!-- Title section -->
+<div class="title-box w-full py-4 px-10 mb-6 z-10">
+<h1 class="text-3xl font-bold text-gray-800">난방 시스템 비교 및 실증 테스트 제안</h1>
+</div>
+<!-- Main content -->
+<div class="flex flex-1 px-10 pb-6 z-10">
+<!-- Left column - Comparison -->
+<div class="w-3/5 pr-5">
+<h2 class="text-2xl font-semibold text-gray-700 mb-3 flex items-center">
+<i class="fas fa-balance-scale text-green-600 mr-2"></i>
+                    주요 난방 방식별 비교
+                </h2>
+<div class="overflow-hidden rounded-lg shadow-md">
+<table class="comparison-table w-full text-sm">
+<thead>
+<tr>
+<th class="text-left">항목</th>
+<th class="text-center">이온히팅보일러</th>
+<th class="text-center">가스보일러</th>
+<th class="text-center">히트펌프</th>
+<th class="text-center">일반 전기보일러</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="font-medium">에너지 효율</td>
+<td class="text-center"><i class="fas fa-star rating-excellent"></i> 99.6%<br/><span class="text-xs text-gray-500">물리학회 논문 Highlight 등재</span></td>
+<td class="text-center"><i class="fas fa-star rating-average"></i> 80~95%</td>
+<td class="text-center"><i class="fas fa-star rating-good"></i> 90~95%<br/><span class="text-xs text-gray-500">이상</span></td>
+<td class="text-center"><i class="fas fa-star rating-excellent"></i> 100%<br/><span class="text-xs text-gray-500">전기히터</span></td>
+</tr>
+<tr>
+<td class="font-medium">에너지 비용 절감</td>
+<td class="text-center"><i class="fas fa-star rating-excellent"></i> <span class="highlight-text">가스보일러 대비 50%<br/>히트펌프 대비 28.1%</span></td>
+<td class="text-center">-</td>
+<td class="text-center">-</td>
+<td class="text-center">-</td>
+</tr>
+<tr>
+<td class="font-medium">탄소 배출량</td>
+<td class="text-center"><i class="fas fa-star rating-excellent"></i> 0%<br/><span class="text-xs text-gray-500">연소 과정 없음</span></td>
+<td class="text-center"><i class="fas fa-star rating-poor"></i> <span class="text-xs text-gray-500">높음</span></td>
+<td class="text-center"><i class="fas fa-star rating-good"></i> <span class="text-xs text-gray-500">낮음</span></td>
+<td class="text-center"><i class="fas fa-star rating-average"></i> <span class="text-xs text-gray-500">전기 생산 방식에 따라 다름</span></td>
+</tr>
+<tr>
+<td class="font-medium">설치 편의성</td>
+<td class="text-center"><i class="fas fa-star rating-excellent"></i> <span class="highlight-text">실외기, 냉매, 굴뚝 불필요<br/>소형화 (동급 대비 1/6)</span></td>
+<td class="text-center"><i class="fas fa-star rating-poor"></i> <span class="text-xs text-gray-500">굴뚝, 가스 배관 필요</span></td>
+<td class="text-center"><i class="fas fa-star rating-poor"></i> <span class="text-xs text-gray-500">실외기, 냉매 배관 필요</span></td>
+<td class="text-center">-</td>
+</tr>
+<tr>
+<td class="font-medium">운영 소음</td>
+<td class="text-center"><i class="fas fa-star rating-excellent"></i> <span class="highlight-text">무소음</span></td>
+<td class="text-center"><i class="fas fa-star rating-average"></i> <span class="text-xs text-gray-500">있음</span></td>
+<td class="text-center"><i class="fas fa-star rating-average"></i> <span class="text-xs text-gray-500">있음</span></td>
+<td class="text-center"><i class="fas fa-star rating-average"></i> <span class="text-xs text-gray-500">있음</span></td>
+</tr>
+<tr>
+<td class="font-medium">온도 제어</td>
+<td class="text-center"><i class="fas fa-star rating-excellent"></i> <span class="highlight-text">±0.1℃ 정밀 제어</span></td>
+<td class="text-center">-</td>
+<td class="text-center">-</td>
+<td class="text-center">-</td>
+</tr>
+<tr>
+<td class="font-medium">가열 속도</td>
+<td class="text-center"><i class="fas fa-star rating-excellent"></i> <span class="highlight-text">기존 전기보일러 대비 약 2배 빠름</span></td>
+<td class="text-center"><i class="fas fa-star rating-good"></i> <span class="text-xs text-gray-500">빠름</span></td>
+<td class="text-center"><i class="fas fa-star rating-poor"></i> <span class="text-xs text-gray-500">느림 (외기 온도 영향)</span></td>
+<td class="text-center"><i class="fas fa-star rating-poor"></i> <span class="text-xs text-gray-500">느림</span></td>
+</tr>
+<tr>
+<td class="font-medium">초기 투자비 회수 기간</td>
+<td class="text-center"><i class="fas fa-star rating-excellent"></i> <span class="highlight-text">1~3년</span></td>
+<td class="text-center">-</td>
+<td class="text-center">-</td>
+<td class="text-center">-</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Right column - Suggestions -->
+<div class="w-2/5 pl-5">
+<h2 class="text-2xl font-semibold text-gray-700 mb-3 flex items-center">
+<i class="fas fa-flask text-green-600 mr-2"></i>
+                    현지 실증 테스트 제안
+                </h2>
+<div class="suggestion-card p-5 rounded-lg shadow-md mb-4">
+<div class="flex items-center mb-3">
+<div class="icon-circle w-10 h-10 rounded-full flex items-center justify-center mr-3">
+<i class="fas fa-lightbulb text-green-600"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800">소규모 파일럿 프로젝트</h3>
+</div>
+<p class="text-gray-700">이온히팅보일러의 혁신적인 성능과 경제적, 환경적 가치를 직접 경험하실 수 있도록 소규모 파일럿 프로젝트를 제안합니다. 실제 운영 환경에서 에너지 절감, 탄소 배출량 저감 효과를 직접 검증하세요.</p>
+</div>
+<div class="suggestion-card p-5 rounded-lg shadow-md mb-4">
+<div class="flex items-center mb-3">
+<div class="icon-circle w-10 h-10 rounded-full flex items-center justify-center mr-3">
+<i class="fas fa-chart-line text-green-600"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800">점진적인 확대 적용</h3>
+</div>
+<p class="text-gray-700">파일럿 프로젝트의 결과를 바탕으로 점진적인 확대 적용을 고려하세요. 정부 보조금, RE100 달성, 탄소세 대응 등 다양한 정책 및 경영 목표와 연계하여 시너지를 극대화할 수 있는 기회가 될 것입니다.</p>
+</div>
+<div class="suggestion-card p-5 rounded-lg shadow-md">
+<div class="flex items-center mb-3">
+<div class="icon-circle w-10 h-10 rounded-full flex items-center justify-center mr-3">
+<i class="fas fa-handshake text-green-600"></i>
+</div>
+<h3 class="text-xl font-semibold text-gray-800">성공적인 파트너십</h3>
+</div>
+<p class="text-gray-700">현지 실증을 통해 차세대 난방 솔루션의 가능성을 확인하고, 지속 가능한 미래를 위한 성공적인 파트너십을 구축하기를 기대합니다.</p>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="absolute bottom-4 right-10 text-sm text-gray-500 z-10">
+<p>이온히팅보일러 기술소개 및 성능검증 | 2025-09-06</p>
+</div>
+</div>
+
+</body></html>
